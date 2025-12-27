@@ -1,35 +1,24 @@
-﻿namespace ChickenInvaders
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace ChickenInvaders
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.Label lblLives;
-        private System.Windows.Forms.Label lblGameOver;
-        private System.Windows.Forms.Label lblInstructions;
-        private System.Windows.Forms.Panel gamePanel;
+        // Controls
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.PictureBox playerPictureBox;
-        private System.Windows.Forms.Panel headerPanel;
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button btnStartGame;
+        private System.Windows.Forms.Button btnViewRankings;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnResume;
         private System.Windows.Forms.Button btnRestart;
-        private System.Windows.Forms.Panel buttonPanel;
-        private System.Windows.Forms.Panel welcomePanel;
-        private System.Windows.Forms.Label lblWelcomeTitle;
-        private System.Windows.Forms.Label lblWelcomeInstructions;
-        private System.Windows.Forms.Button btnStartGame;
+        private System.Windows.Forms.Button btnPlayAgain;
+        private System.Windows.Forms.Button btnBackToMenu;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -41,284 +30,203 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            lblTitle = new Label();
-            lblScore = new Label();
-            lblLives = new Label();
-            lblGameOver = new Label();
-            lblInstructions = new Label();
-            gamePanel = new Panel();
-            playerPictureBox = new PictureBox();
-            gameTimer = new System.Windows.Forms.Timer(components);
-            headerPanel = new Panel();
-            btnStart = new Button();
-            btnPause = new Button();
-            btnResume = new Button();
-            btnRestart = new Button();
-            buttonPanel = new Panel();
-            welcomePanel = new Panel();
-            lblWelcomeTitle = new Label();
-            lblWelcomeInstructions = new Label();
-            btnStartGame = new Button();
-            gamePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)playerPictureBox).BeginInit();
-            headerPanel.SuspendLayout();
-            welcomePanel.SuspendLayout();
-            SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(12, 12);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(208, 32);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Chicken Invaders";
-            // 
-            // lblScore
-            // 
-            lblScore.AutoSize = true;
-            lblScore.BackColor = Color.Transparent;
-            lblScore.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblScore.ForeColor = Color.LightGreen;
-            lblScore.Location = new Point(800, 15);
-            lblScore.Name = "lblScore";
-            lblScore.Size = new Size(69, 21);
-            lblScore.TabIndex = 1;
-            lblScore.Text = "Score: 0";
-            // 
-            // lblLives
-            // 
-            lblLives.AutoSize = true;
-            lblLives.BackColor = Color.Transparent;
-            lblLives.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblLives.ForeColor = Color.OrangeRed;
-            lblLives.Location = new Point(920, 15);
-            lblLives.Name = "lblLives";
-            lblLives.Size = new Size(65, 21);
-            lblLives.TabIndex = 2;
-            lblLives.Text = "Lives: 3";
-            // 
-            // lblGameOver
-            // 
-            lblGameOver.AutoSize = true;
-            lblGameOver.BackColor = Color.FromArgb(220, 0, 0, 0);
-            lblGameOver.Font = new Font("Segoe UI", 36F, FontStyle.Bold);
-            lblGameOver.ForeColor = Color.White;
-            lblGameOver.Location = new Point(350, 320);
-            lblGameOver.Name = "lblGameOver";
-            lblGameOver.Size = new Size(278, 65);
-            lblGameOver.TabIndex = 3;
-            lblGameOver.Text = "Game Over";
-            lblGameOver.Visible = false;
-            // 
-            // lblInstructions
-            // 
-            lblInstructions.AutoSize = true;
-            lblInstructions.BackColor = Color.FromArgb(220, 0, 0, 0);
-            lblInstructions.Font = new Font("Segoe UI", 10F);
-            lblInstructions.ForeColor = Color.White;
-            lblInstructions.Location = new Point(412, 400);
-            lblInstructions.Name = "lblInstructions";
-            lblInstructions.Size = new Size(167, 19);
-            lblInstructions.TabIndex = 4;
-            lblInstructions.Text = "Click Restart to play again";
-            lblInstructions.Visible = false;
-            // 
-            // gamePanel
-            // 
-            gamePanel.BackColor = Color.FromArgb(24, 24, 30);
-            gamePanel.Controls.Add(playerPictureBox);
-            gamePanel.Dock = DockStyle.Fill;
-            gamePanel.Location = new Point(0, 64);
-            gamePanel.Name = "gamePanel";
-            gamePanel.Size = new Size(1024, 685);
-            gamePanel.TabIndex = 5;
-            // 
-            // playerPictureBox
-            // 
-            playerPictureBox.BackColor = Color.Transparent;
-            playerPictureBox.Location = new Point(488, 600);
-            playerPictureBox.Name = "playerPictureBox";
-            playerPictureBox.Size = new Size(48, 48);
-            playerPictureBox.TabIndex = 0;
-            playerPictureBox.TabStop = false;
-            playerPictureBox.Paint += PlayerPictureBox_Paint;
+            this.components = new System.ComponentModel.Container();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.btnStartGame = new System.Windows.Forms.Button();
+            this.btnViewRankings = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnResume = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnPlayAgain = new System.Windows.Forms.Button();
+            this.btnBackToMenu = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // gameTimer
             // 
-            gameTimer.Interval = 16;
-            gameTimer.Tick += GameLoop;
+            this.gameTimer.Interval = 16;
+            this.gameTimer.Tick += new System.EventHandler(this.GameLoop);
             // 
-            // headerPanel
+            // txtUsername
             // 
-            headerPanel.BackColor = Color.FromArgb(40, 40, 48);
-            headerPanel.Controls.Add(btnStart);
-            headerPanel.Controls.Add(btnPause);
-            headerPanel.Controls.Add(btnResume);
-            headerPanel.Controls.Add(btnRestart);
-            headerPanel.Controls.Add(lblTitle);
-            headerPanel.Controls.Add(lblScore);
-            headerPanel.Controls.Add(lblLives);
-            headerPanel.Dock = DockStyle.Top;
-            headerPanel.Location = new Point(0, 0);
-            headerPanel.Name = "headerPanel";
-            headerPanel.Size = new Size(1024, 64);
-            headerPanel.TabIndex = 6;
-            // 
-            // btnStart
-            // 
-            btnStart.BackColor = Color.FromArgb(50, 205, 50);
-            btnStart.FlatStyle = FlatStyle.Flat;
-            btnStart.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnStart.ForeColor = Color.White;
-            btnStart.Location = new Point(240, 12);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(80, 36);
-            btnStart.TabIndex = 3;
-            btnStart.Text = "Start";
-            btnStart.UseVisualStyleBackColor = false;
-            btnStart.Click += btnStart_Click;
-            // 
-            // btnPause
-            // 
-            btnPause.BackColor = Color.FromArgb(255, 165, 0);
-            btnPause.Enabled = false;
-            btnPause.FlatStyle = FlatStyle.Flat;
-            btnPause.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnPause.ForeColor = Color.White;
-            btnPause.Location = new Point(326, 12);
-            btnPause.Name = "btnPause";
-            btnPause.Size = new Size(80, 36);
-            btnPause.TabIndex = 4;
-            btnPause.Text = "Pause";
-            btnPause.UseVisualStyleBackColor = false;
-            btnPause.Click += btnPause_Click;
-            // 
-            // btnResume
-            // 
-            btnResume.BackColor = Color.FromArgb(30, 144, 255);
-            btnResume.Enabled = false;
-            btnResume.FlatStyle = FlatStyle.Flat;
-            btnResume.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnResume.ForeColor = Color.White;
-            btnResume.Location = new Point(413, 12);
-            btnResume.Name = "btnResume";
-            btnResume.Size = new Size(80, 36);
-            btnResume.TabIndex = 5;
-            btnResume.Text = "Resume";
-            btnResume.UseVisualStyleBackColor = false;
-            btnResume.Click += btnResume_Click;
-            // 
-            // btnRestart
-            // 
-            btnRestart.BackColor = Color.FromArgb(220, 20, 60);
-            btnRestart.Enabled = false;
-            btnRestart.FlatStyle = FlatStyle.Flat;
-            btnRestart.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnRestart.ForeColor = Color.White;
-            btnRestart.Location = new Point(499, 12);
-            btnRestart.Name = "btnRestart";
-            btnRestart.Size = new Size(80, 36);
-            btnRestart.TabIndex = 6;
-            btnRestart.Text = "Restart";
-            btnRestart.UseVisualStyleBackColor = false;
-            btnRestart.Click += btnRestart_Click;
-            // 
-            // buttonPanel
-            // 
-            buttonPanel.Location = new Point(0, 0);
-            buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(200, 100);
-            buttonPanel.TabIndex = 0;
-            // 
-            // welcomePanel
-            // 
-            welcomePanel.BackColor = Color.FromArgb(45, 45, 48);
-            welcomePanel.BorderStyle = BorderStyle.FixedSingle;
-            welcomePanel.Controls.Add(btnStartGame);
-            welcomePanel.Controls.Add(lblWelcomeInstructions);
-            welcomePanel.Controls.Add(lblWelcomeTitle);
-            welcomePanel.Location = new Point(312, 250);
-            welcomePanel.Name = "welcomePanel";
-            welcomePanel.Size = new Size(400, 280);
-            welcomePanel.TabIndex = 7;
-            // 
-            // lblWelcomeTitle
-            // 
-            lblWelcomeTitle.AutoSize = true;
-            lblWelcomeTitle.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
-            lblWelcomeTitle.ForeColor = Color.FromArgb(0, 204, 102);
-            lblWelcomeTitle.Location = new Point(40, 30);
-            lblWelcomeTitle.Name = "lblWelcomeTitle";
-            lblWelcomeTitle.Size = new Size(326, 51);
-            lblWelcomeTitle.TabIndex = 0;
-            lblWelcomeTitle.Text = "Chicken Invaders";
-            // 
-            // lblWelcomeInstructions
-            // 
-            lblWelcomeInstructions.Font = new Font("Segoe UI", 11F);
-            lblWelcomeInstructions.ForeColor = Color.White;
-            lblWelcomeInstructions.Location = new Point(30, 100);
-            lblWelcomeInstructions.Name = "lblWelcomeInstructions";
-            lblWelcomeInstructions.Size = new Size(340, 90);
-            lblWelcomeInstructions.TabIndex = 1;
-            lblWelcomeInstructions.Text = "🎮 How to Play:\r\n\r\n← → Arrow Keys or A/D - Move Spaceship\r\nSPACE - Shoot\r\n\r\nPress START button to begin!";
-            lblWelcomeInstructions.TextAlign = ContentAlignment.TopCenter;
+            this.txtUsername.BackColor = Color.FromArgb(30, 30, 50);
+            this.txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            this.txtUsername.Font = new Font("Segoe UI", 16F);
+            this.txtUsername.ForeColor = Color.White;
+            this.txtUsername.Location = new Point(332, 355);
+            this.txtUsername.MaxLength = 20;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new Size(360, 36);
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // btnStartGame
             // 
-            btnStartGame.BackColor = Color.FromArgb(0, 204, 102);
-            btnStartGame.FlatAppearance.BorderSize = 0;
-            btnStartGame.FlatStyle = FlatStyle.Flat;
-            btnStartGame.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnStartGame.ForeColor = Color.White;
-            btnStartGame.Location = new Point(100, 210);
-            btnStartGame.Name = "btnStartGame";
-            btnStartGame.Size = new Size(200, 50);
-            btnStartGame.TabIndex = 2;
-            btnStartGame.Text = "START GAME";
-            btnStartGame.UseVisualStyleBackColor = false;
-            btnStartGame.Click += btnStartGame_Click;
+            this.btnStartGame.BackColor = Color.FromArgb(0, 200, 100);
+            this.btnStartGame.Cursor = Cursors.Hand;
+            this.btnStartGame.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 136);
+            this.btnStartGame.FlatAppearance.BorderSize = 2;
+            this.btnStartGame.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 150, 75);
+            this.btnStartGame.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 230, 115);
+            this.btnStartGame.FlatStyle = FlatStyle.Flat;
+            this.btnStartGame.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.btnStartGame.ForeColor = Color.White;
+            this.btnStartGame.Location = new Point(332, 510);
+            this.btnStartGame.Name = "btnStartGame";
+            this.btnStartGame.Size = new Size(170, 45);
+            this.btnStartGame.TabIndex = 1;
+            this.btnStartGame.Text = "🚀 START GAME";
+            this.btnStartGame.UseVisualStyleBackColor = false;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            // 
+            // btnViewRankings
+            // 
+            this.btnViewRankings.BackColor = Color.FromArgb(80, 80, 120);
+            this.btnViewRankings.Cursor = Cursors.Hand;
+            this.btnViewRankings.FlatAppearance.BorderColor = Color.FromArgb(100, 100, 150);
+            this.btnViewRankings.FlatAppearance.BorderSize = 2;
+            this.btnViewRankings.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 60, 100);
+            this.btnViewRankings.FlatAppearance.MouseOverBackColor = Color.FromArgb(100, 100, 140);
+            this.btnViewRankings.FlatStyle = FlatStyle.Flat;
+            this.btnViewRankings.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.btnViewRankings.ForeColor = Color.White;
+            this.btnViewRankings.Location = new Point(522, 510);
+            this.btnViewRankings.Name = "btnViewRankings";
+            this.btnViewRankings.Size = new Size(170, 45);
+            this.btnViewRankings.TabIndex = 2;
+            this.btnViewRankings.Text = "🏆 RANKINGS";
+            this.btnViewRankings.UseVisualStyleBackColor = false;
+            this.btnViewRankings.Click += new System.EventHandler(this.btnViewRankings_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = Color.FromArgb(255, 180, 50);
+            this.btnPause.Cursor = Cursors.Hand;
+            this.btnPause.FlatAppearance.BorderColor = Color.FromArgb(255, 200, 80);
+            this.btnPause.FlatAppearance.BorderSize = 1;
+            this.btnPause.FlatAppearance.MouseDownBackColor = Color.FromArgb(200, 140, 30);
+            this.btnPause.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 200, 80);
+            this.btnPause.FlatStyle = FlatStyle.Flat;
+            this.btnPause.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnPause.ForeColor = Color.White;
+            this.btnPause.Location = new Point(824, 15);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new Size(85, 35);
+            this.btnPause.TabIndex = 3;
+            this.btnPause.Text = "⏸ PAUSE";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Visible = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnResume
+            // 
+            this.btnResume.BackColor = Color.FromArgb(50, 150, 255);
+            this.btnResume.Cursor = Cursors.Hand;
+            this.btnResume.FlatAppearance.BorderColor = Color.FromArgb(80, 180, 255);
+            this.btnResume.FlatAppearance.BorderSize = 1;
+            this.btnResume.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 120, 200);
+            this.btnResume.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 180, 255);
+            this.btnResume.FlatStyle = FlatStyle.Flat;
+            this.btnResume.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnResume.ForeColor = Color.White;
+            this.btnResume.Location = new Point(824, 15);
+            this.btnResume.Name = "btnResume";
+            this.btnResume.Size = new Size(85, 35);
+            this.btnResume.TabIndex = 4;
+            this.btnResume.Text = "▶ RESUME";
+            this.btnResume.UseVisualStyleBackColor = false;
+            this.btnResume.Visible = false;
+            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.BackColor = Color.FromArgb(220, 50, 80);
+            this.btnRestart.Cursor = Cursors.Hand;
+            this.btnRestart.FlatAppearance.BorderColor = Color.FromArgb(255, 80, 100);
+            this.btnRestart.FlatAppearance.BorderSize = 1;
+            this.btnRestart.FlatAppearance.MouseDownBackColor = Color.FromArgb(180, 30, 60);
+            this.btnRestart.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 80, 100);
+            this.btnRestart.FlatStyle = FlatStyle.Flat;
+            this.btnRestart.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnRestart.ForeColor = Color.White;
+            this.btnRestart.Location = new Point(915, 15);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new Size(85, 35);
+            this.btnRestart.TabIndex = 5;
+            this.btnRestart.Text = "🔄 RESTART";
+            this.btnRestart.UseVisualStyleBackColor = false;
+            this.btnRestart.Visible = false;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // btnPlayAgain
+            // 
+            this.btnPlayAgain.BackColor = Color.FromArgb(0, 200, 100);
+            this.btnPlayAgain.Cursor = Cursors.Hand;
+            this.btnPlayAgain.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 136);
+            this.btnPlayAgain.FlatAppearance.BorderSize = 2;
+            this.btnPlayAgain.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 150, 75);
+            this.btnPlayAgain.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 230, 115);
+            this.btnPlayAgain.FlatStyle = FlatStyle.Flat;
+            this.btnPlayAgain.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.btnPlayAgain.ForeColor = Color.White;
+            this.btnPlayAgain.Location = new Point(262, 545);
+            this.btnPlayAgain.Name = "btnPlayAgain";
+            this.btnPlayAgain.Size = new Size(200, 45);
+            this.btnPlayAgain.TabIndex = 6;
+            this.btnPlayAgain.Text = "🎮 PLAY AGAIN";
+            this.btnPlayAgain.UseVisualStyleBackColor = false;
+            this.btnPlayAgain.Visible = false;
+            this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
+            // 
+            // btnBackToMenu
+            // 
+            this.btnBackToMenu.BackColor = Color.FromArgb(80, 80, 120);
+            this.btnBackToMenu.Cursor = Cursors.Hand;
+            this.btnBackToMenu.FlatAppearance.BorderColor = Color.FromArgb(100, 100, 150);
+            this.btnBackToMenu.FlatAppearance.BorderSize = 2;
+            this.btnBackToMenu.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 60, 100);
+            this.btnBackToMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(100, 100, 140);
+            this.btnBackToMenu.FlatStyle = FlatStyle.Flat;
+            this.btnBackToMenu.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.btnBackToMenu.ForeColor = Color.White;
+            this.btnBackToMenu.Location = new Point(562, 545);
+            this.btnBackToMenu.Name = "btnBackToMenu";
+            this.btnBackToMenu.Size = new Size(200, 45);
+            this.btnBackToMenu.TabIndex = 7;
+            this.btnBackToMenu.Text = "🏠 MAIN MENU";
+            this.btnBackToMenu.UseVisualStyleBackColor = false;
+            this.btnBackToMenu.Visible = false;
+            this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(24, 24, 30);
-            ClientSize = new Size(1024, 749);
-            Controls.Add(welcomePanel);
-            Controls.Add(lblInstructions);
-            Controls.Add(lblGameOver);
-            Controls.Add(gamePanel);
-            Controls.Add(headerPanel);
-            DoubleBuffered = true;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            KeyPreview = true;
-            MaximizeBox = false;
-            Name = "Form1";
-            Text = "Chicken Invaders";
-            Load += Form1_Load;
-            KeyDown += Form1_KeyDown;
-            KeyUp += Form1_KeyUp;
-            Resize += Form1_Resize;
-            gamePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)playerPictureBox).EndInit();
-            headerPanel.ResumeLayout(false);
-            headerPanel.PerformLayout();
-            welcomePanel.ResumeLayout(false);
-            welcomePanel.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new SizeF(7F, 15F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.FromArgb(10, 10, 25);
+            this.ClientSize = new Size(1024, 768);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.btnStartGame);
+            this.Controls.Add(this.btnViewRankings);
+            this.Controls.Add(this.btnPause);
+            this.Controls.Add(this.btnResume);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.btnPlayAgain);
+            this.Controls.Add(this.btnBackToMenu);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "🐔 Chicken Invaders - Space Battle";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new KeyEventHandler(this.Form1_KeyUp);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
